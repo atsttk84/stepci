@@ -111,15 +111,17 @@ yargs(hideBin(process.argv))
         type: 'string',
         default: './workflow.yml'
       })
-      .positional('generatePathParams', { type: 'boolean', default: true })
-      .positional('generateOptionalParams', { type: 'boolean', default: true })
-      .positional('generateRequestBody', { type: 'boolean', default: true })
-      .positional('useExampleValues', { type: 'boolean', default: true })
-      .positional('useDefaultValues', { type: 'boolean', default: true })
-      .positional('checkStatus', { type: 'boolean', default: true })
-      .positional('checkExamples', { type: 'boolean', default: true })
-      .positional('checkSchema', { type: 'boolean', default: true })
-      .positional('contentType', { type: 'string', default: 'application/json' })
+    }).options({
+        generatePathParams: { type: 'boolean', default: true },
+        generateOptionalParams: { type: 'boolean', default: true },
+        generateRequestBody: { type: 'boolean', default: true },
+        useExampleValues: { type: 'boolean', default: true },
+        useDefaultValues: { type: 'boolean', default: true },
+        checkStatus: { type: 'boolean', default: true },
+        checkExamples: { type: 'boolean', default: true },
+        checkSchema: { type: 'boolean', default: true },
+        contentType: { type: 'string', default: 'application/json' },
+    })
   }, async (argv) => {
     const generateWorkflowConfig: GenerateWorkflowOptions = {
       generator: {
